@@ -2,14 +2,23 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "baseUrl": ".",
-    "rootDir": "src",
+    "rootDir": "lib",
     "outDir": "dist",
     "tsBuildInfoFile": "dist/tsconfig.lib.tsbuildinfo",
     "emitDeclarationOnly": true,
     "allowImportingTsExtensions": true,
     "forceConsistentCasingInFileNames": true,
-    "types": ["node"]
+    "lib": [
+      "DOM"
+    ],
+    "types": [
+      "node",
+      "@webgpu/types",
+      "./index.d.ts"
+    ]
   },
-  "include": ["src/**/*.ts"],
+  "include": [
+    "lib/**/*.ts"
+  ],
   "references": []
 }
