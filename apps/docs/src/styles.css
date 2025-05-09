@@ -11,7 +11,6 @@
 }
 
 * {
-  color: white;
   font-family: var(--font);
 }
 
@@ -27,6 +26,19 @@
 .input-search:focus {
   background: rgba(255, 255, 255, 0.3);
 
+}
+
+.page-link {
+  @apply text-white;
+  @apply line-clamp-1;
+}
+
+.soon-badge {
+  @apply text-black;
+  @apply bg-orange-300;
+  @apply rounded-sm;
+  @apply px-1;
+  @apply text-xs;
 }
 
 #page-links a {
