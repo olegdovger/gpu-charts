@@ -1,0 +1,73 @@
+<!doctype html>
+<html class="h-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="src/styles.css">
+    <script type="module" src="src/index.ts"></script>
+  </head>
+  <body class="w-full h-full justify-center p-4 bg-dark-green">
+    <div class="w-full h-full flex flex-row gap-4">
+      <div class="flex flex-col gap-1 h-full w-1/4 pl-4 rounded-md content-links">
+        <input id="page-links-search" type="text" placeholder="Search pages..." class="input-search mt-2 w-full p-1 rounded bg-background text-white" />
+        <div class="flex flex-col gap-1 overflow-y-auto page-links" id="page-links">
+          <a href="/src/pages/about/about.html" target="content-frame" class="page-link" title="About">About</a>
+          <a href="/src/pages/fixed-size-points/index.html" target="content-frame" class="page-link" title="Fixed size points">Fixed size points</a>
+          <a href="/src/pages/fixed-size-lines/index.html" target="content-frame" class="page-link pointer-events-none" title="Fixed size lines">Fixed size lines <soon-badge /></a>
+          <a href="/src/pages/animation/index.html" target="content-frame" class="page-link pointer-events-none" title="Animation">Animation <soon-badge /></a>
+          <a href="/src/pages/msdf-font/index.html" target="content-frame" class="page-link pointer-events-none" title="MSDF font">MSDF font <soon-badge /></a>
+        </div>
+      </div>
+      <div class="h-full w-3/4 border-2 border-white border-main border-dashed rounded-xl p-4">
+        <iframe name="content-frame" class="w-full h-full overflow-hidden" src="/src/pages/about/about.html"></iframe>
+      </div>
+    </div>
+  </body>
+  <script>
+    function setActiveLinkFromHash() {
+      const links = document.querySelectorAll('#page-links a');
+      const hash = location.hash.slice(1);
+      links.forEach(link => {
+        if (link.getAttribute('href') === hash) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    }
+
+    function setIframeSrcFromHash() {
+      const iframe = document.querySelector('iframe[name="content-frame"]');
+      if (!iframe) return;
+      if (location.hash && location.hash.startsWith('#/src/pages/')) {
+        iframe.src = location.hash.slice(1);
+      } else {
+        iframe.src = '';
+      }
+      setActiveLinkFromHash();
+    }
+
+    // On page load and hash change
+    window.addEventListener('hashchange', setIframeSrcFromHash);
+    window.addEventListener('DOMContentLoaded', function() {
+      // Attach click handlers to links in #page-links
+      document.getElementById('page-links')?.addEventListener('click', function(e) {
+        const a = e.target.closest('a');
+        if (a && a.getAttribute('href')?.startsWith('/src/pages/')) {
+          e.preventDefault();
+          location.hash = a.getAttribute('href');
+          // setIframeSrcFromHash will run via hashchange
+        }
+      });
+      setIframeSrcFromHash();
+    });
+  </script>
+  <script>
+    document.getElementById('page-links-search').addEventListener('input', function(e) {
+      const query = e.target.value.toLowerCase();
+      document.querySelectorAll('#page-links a').forEach(link => {
+        link.style.display = link.textContent.toLowerCase().includes(query) ? '' : 'none';
+      });
+    });
+  </script>
+</html>

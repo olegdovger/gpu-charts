@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+:root {
+	--font: JetBrains Mono;
+	--background-color: oklch(0.42 0.1994 262.59);
+}
+
+@theme {
+	--font-script: var(--font);
+	--color-dark-green: var(--background-color);
+}
+
+* {
+	font-family: var(--font);
+}
+
+.page-links {
+	flex-flow: wrap;
+}
+
+.input-search {
+	padding: 0.125rem 0.5rem;
+	outline: none;
+}
+
+.input-search:focus {
+	background: rgba(255, 255, 255, 0.3);
+}
+
+.page-link {
+	@apply text-white;
+	@apply line-clamp-1;
+}
+
+.soon-badge {
+	@apply text-black;
+	@apply bg-orange-300;
+	@apply rounded-sm;
+	@apply px-1;
+	@apply text-xs;
+}
+
+#page-links a {
+	width: 100%;
+	padding: 0.125rem 0.5rem;
+	text-underline-offset: 0.25rem;
+	border: 1px solid transparent;
+	border-radius: 0.25rem;
+
+	outline: none;
+}
+
+#page-links a:hover {
+	text-decoration: underline;
+}
+
+#page-links a:focus {
+	border: 1px solid white;
+}
+
+#page-links a.active {
+	/* color: var(--background-color); */
+
+	/* border: 1px solid transparent; */
+	border-radius: 0.25rem;
+
+	background: rgba(255, 255, 255, 0.3);
+}
+
+.stress {
+	color: #40ff70; /* pink highlight */
+	font-weight: bold; /* bold */
+	font-style: italic; /* italic */
+	text-decoration: underline; /* underline */
+	font-size: 1.2em; /* slightly bigger */
+	/* any combo you want */
+}
+
+.paragraph {
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+}

@@ -1,0 +1,1 @@
+gpu-charts - tiny library for demonstration purposes of how to use WebGPU for chart rendering
