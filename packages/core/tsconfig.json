@@ -1,11 +1,12 @@
 {
   "extends": "../../tsconfig.base.json",
   "include": [
-    "lib",
+    "index.ts"
   ],
   "compilerOptions": {
     "types": [
-      "./index.d.ts"
+      "./index.d.ts",
+      "@webgpu/types"
     ]
   }
 }

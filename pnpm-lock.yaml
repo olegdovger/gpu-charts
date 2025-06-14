@@ -18,12 +18,18 @@ importers:
       '@biomejs/biome':
         specifier: ^1.9.4
         version: 1.9.4
+      '@webgpu/types':
+        specifier: ^0.1.60
+        version: 0.1.60
 
   apps/docs:
     dependencies:
       '@gpu-charts/core':
         specifier: workspace:*
         version: link:../../packages/core
+      '@gpu-charts/font-ttf':
+        specifier: workspace:*
+        version: link:../../packages/font-ttf
       '@tailwindcss/vite':
         specifier: ^4.1.5
         version: 4.1.6(vite@6.3.5(jiti@2.4.2)(lightningcss@1.29.2))
@@ -33,6 +39,15 @@ importers:
 
   packages/core:
     devDependencies:
+      '@webgpu/types':
+        specifier: ^0.1.60
+        version: 0.1.60
+
+  packages/font-ttf:
+    devDependencies:
+      '@gpu-charts/core':
+        specifier: workspace:*
+        version: link:../core
       '@webgpu/types':
         specifier: ^0.1.60
         version: 0.1.60

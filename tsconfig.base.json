@@ -5,7 +5,8 @@
     "moduleResolution": "NodeNext",
     "lib": [
       "ESNext",
-      "DOM"
+      "DOM",
+      "DOM.Iterable"
     ],
     "allowImportingTsExtensions": true,
     "noEmit": true,
@@ -24,12 +25,14 @@
     "skipLibCheck": true,
     "isolatedModules": true,
     "incremental": true,
-    "types": [],
+    "types": [
+      "@webgpu/types"
+    ],
     "baseUrl": ".",
   },
   "exclude": [
     "node_modules",
     "dist",
     "build"
-  ]
+  ],
 }

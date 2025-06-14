@@ -7,6 +7,7 @@
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"lint": "biome check --write .",
 		"format": "biome format --write .",
+		"typecheck": "tsc --noEmit",
 		"docs": "pnpm --filter @gpu-charts/docs dev"
 	},
 	"lint-staged": {},
@@ -19,6 +20,7 @@
 		"vite": "^6.3.5"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "^1.9.4"
+		"@biomejs/biome": "^1.9.4",
+		"@webgpu/types": "^0.1.60"
 	}
 }

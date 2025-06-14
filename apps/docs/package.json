@@ -10,6 +10,7 @@
 	},
 	"dependencies": {
 		"@gpu-charts/core": "workspace:*",
+		"@gpu-charts/font-ttf": "workspace:*",
 		"@tailwindcss/vite": "^4.1.5",
 		"tailwindcss": "^4.1.5"
 	}

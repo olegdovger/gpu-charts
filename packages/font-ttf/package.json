@@ -1,0 +1,16 @@
+{
+  "name": "@gpu-charts/font-ttf",
+  "version": "0.0.1",
+  "type": "module",
+  "main": "./index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "oleg.a.dovger@gmail.com",
+  "license": "ISC",
+  "devDependencies": {
+    "@webgpu/types": "^0.1.60",
+    "@gpu-charts/core": "workspace:*"
+  }
+}
